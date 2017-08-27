@@ -1,0 +1,15 @@
+<h3>以下の内容で送信する</h3>
+
+<%= form_for(@topic)do |f| %>
+  <%= f.hidden_field :content %>
+
+  <p>投稿内容：<%=@topic.content %>
+  <br>
+  <%= f.submit "投稿する" %>
+
+<% end %>
+
+<%= form_for(@topic, url: new_topic_path, method: 'get') do |f| %>
+  <%= f.hidden_field :content %>
+  <%= f.submit "もどる", name:'back' %>
+<% end %>

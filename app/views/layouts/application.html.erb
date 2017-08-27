@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Facebookdayo</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <header>
+    <ul>
+        <li><%= link_to "Facebookdayo", root_path%></a></li>
+        <li><%= link_to "トップページ",root_path%></a></li>
+        <li><%= link_to "投稿", topics_path%></a></li>
+        <li><%= link_to 'ユーザー一覧', users_path if user_signed_in? %></li>
+        <li><%= link_to "メッセージ", conversations_path %></li>
+
+      <% if user_signed_in? %>
+        <li><%= link_to 'マイページ', edit_user_registration_path %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path %></li>
+        <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+      <% end %>
+    </ul>
+  </header>
+
+<%= yield %>
+
+  <footer>
+    <p>Facebook@2017</p>
+  </footer>
+
+</body>
+</html>

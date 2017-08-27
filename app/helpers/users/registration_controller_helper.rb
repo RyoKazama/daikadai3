@@ -1,0 +1,2 @@
+module Users::RegistrationControllerHelper
+end
