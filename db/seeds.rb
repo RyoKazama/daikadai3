@@ -8,14 +8,16 @@
 100.times do |n|
   email = Faker::Internet.email
   password = "password"
-  content = Faker::Content.sentence
-  topic = Faker::Content.sentence
+  content = Faker::Lorem.sentence
+  topic = Faker::Lorem.sentence
+  uid = Faker::Number.number(10)
   User.create!(email: email,
                password: password,
                password_confirmation: password,
+               uid: uid,
                )
-  Topic.create!(content: content,
+  Topic.create!(content: topic,
                 )
-  Comment.create!(comment: topic,
+  Comment.create!(content: content,
                 )
 end
