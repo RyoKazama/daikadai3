@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: facebookdayo_production
+  database: facebookdayo
   username: facebookdayo
   password: <%= ENV['FACEBOOKDAYO_DATABASE_PASSWORD'] %>
